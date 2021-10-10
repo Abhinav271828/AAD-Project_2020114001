@@ -4,22 +4,22 @@ Project for the Algorithm Analysis and Design course at IIIT Hyderabad (Haskell 
 # Tentative Timeline
 The following is a tentative timeline of the work involved (covering all algorithms to date, *i.e.*, before 8th October).  
 
-[ ] October 15th: up to Lecture 5
-    [ ] Preliminary algorithms (Fibonacci, integer multiplication)
-    [ ] All divide and conquer algorithms (mergesort, matrix multiplication, order statistics, polynomial multiplication)
-[ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
-    [ ] Kruskal's algorithm
-    [ ] Huffman encoding
-    [ ] The set cover problem
-[ ] November 10th: up to Lecture 12, 29th September (all dynamic programming algorithms)
-    [ ] Shortest path in a DAG
-    [ ] Longest increasing subsequence
-    [ ] Edit distance
-    [ ] Chain matrix multiplication
-    [ ] The knapsack problem (with and without repetition)
-    [ ] Shortest reliable path
-    [ ] All pairs shortest path
-    [ ] Independent set
+- [ ] October 15th: up to Lecture 5
+    - [ ] Preliminary algorithms (Fibonacci, integer multiplication)
+    - [ ] All divide and conquer algorithms (mergesort, matrix multiplication, order statistics, polynomial multiplication)
+- [ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
+    - [ ] Kruskal's algorithm
+    - [ ] Huffman encoding
+    - [ ] The set cover problem
+- [ ] November 10th: up to Lecture 12, 29th September (all dynamic programming algorithms)
+    - [ ] Shortest path in a DAG
+    - [ ] Longest increasing subsequence
+    - [ ] Edit distance
+    - [ ] Chain matrix multiplication
+    - [ ] The knapsack problem (with and without repetition)
+    - [ ] Shortest reliable path
+    - [ ] All pairs shortest path
+    - [ ] Independent set
 
 # Functional Programming
 ## The Lambda Calculus
