@@ -55,9 +55,37 @@ fib4 n = head $ mult (pow n r) b
                    b = [0,1] :: [Integer]
 --------------------------------
 
+-- Strassen with Logarithm --
+pow2 :: Num a => Int -> Matr a -> Matr a -- binary exponentiation with Strassen
+pow2 0 _ = [[1,0],[0,1]]
+pow2 1 m = m
+pow2 n m = case (n `mod` 2) of
+            0 -> (sqr $ pow (n `div` 2) m)
+            1 -> (sqr $ pow (n `div` 2) m) `mul` m
+                 where mul [[a,b],[c,d]] [[e,f],[g,h]]
+                           = [[m1+m4+m7-m5, m3+m5],
+                              [m2+m4, m1+m3+m6-m2]]
+                            where m1 = (a+d) * (e+h)
+                                  m2 = (c+d) * e
+                                  m3 = a * (f-h)
+                                  m4 = d * (g-e)
+                                  m5 = (a+b) * h
+                                  m6 = (c-a) * (e+f)
+                                  m7 = (b-d) * (g+h)
+
+fib5 :: Int -> Integer
+fib5 n = head $ mult (pow2 n r) b
+             where r = [[0,1],[1,1]] :: Matr Integer
+                   b = [0,1] :: [Integer]
+-----------------------------
+
 -- Main --
 main :: IO ()
 main = do x <- getArgs
           let i = read (head x) :: Int
-          print (fib1 i)
+          -- print (fib1 i)
+          -- print (fib2 i)
+          -- print (fib3 i)
+          -- print (fib4 i)
+          print (fib5 i)
 ----------
