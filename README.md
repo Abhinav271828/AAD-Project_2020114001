@@ -67,3 +67,10 @@ The `zipWith`{.hs} function applies a binary operator (in this case `(+)`{.hs}) 
 
 Since Haskell is lazy, when (say) the third element is requested, it tries to evaluate (the first element of `fibs`{.hs}) `+`{.hs} (the first element of `(tail fibs)`{.hs}). Both of these are available and it returns 1, as needed.  
 In this manner, any element of `fibs`{.hs} (which is an infinite list) can be computed.
+
+# Analysis of Algorithms
+The algorithms have been timed using the bash script `bench.sh`. Each input is run a number of times to avoid noise as far as is practical.  
+
+All the running time-related data obtained by using this script can be found [here](https://docs.google.com/spreadsheets/d/1Bw8u3r5KfDKLQmdH42RP8ePQ1ZesS4npszL40DaJ9t4/edit#gid=0). Graphs and best-fit lines (trendlines) were generated using Google Sheets.  
+
+Note that the script uses the `gdate` command (which may be system-specific; `date` will run on a Linux machine) to find the time in microseconds. The name of the executable file that is to be timed is passed as a command line argument, *e.g.*, `./bench.sh "Prelims/Fibonacci/fibonacci".
