@@ -66,9 +66,9 @@ Clearly, the graph shows rapid exponential growth. When shown in a logarithmic s
 The predicted complexity of this function is O(F(*n*)) = O(φⁿ). Oberserving the best fit equation, we see that the base is e^(0.361) = 1.42, which is close to φ.  
 This correlates with the known fact that F(*n*) tends to φⁿ. The difference can be accounted for by the small sample size.
 
-![Running Time of Naïve Recursion](Naïve\ Recursion.png)  
+![Running Time of Naïve Recursion](NaïveRec.png)  
 
-![Running Time of Naïve Recursion (log scale)](Naïve\ Recursion\ (log\ scale).png)  
+![Running Time of Naïve Recursion (log scale)](NaïveRecLog.png)  
 
 
 ### Memoised Solution
@@ -77,7 +77,7 @@ This is the best method apart from the optimised matrix methods.
 We note first that its growth appears mainly linear, although we expect a quadratic growth.  
 Two things can be noted in this connection. First, the quadratic best fit has a better R² value (although this is not a very reliable measure of accuracy). Second, Haskell's implementation of arbitrary-size integer arithmetic, although it is linear, is extremely efficient and unlikely to show significant change in the results for numbers in this range (0 to 1,00,000).
 
-![Running Time of the Memoised Solution](Memoised\ Solution.png)  
+![Running Time of the Memoised Solution](Memoised.png)  
 
 
 ### Naïve Matrix Method
@@ -86,7 +86,7 @@ This is the simplest matrix method. It multiplies the base (2x1) matrix on the l
 However, as noted above, the arbitrary-precision operations do not make much difference in the range taken (0 to 1,25,000). This is why the graph appears almost linear.  
 However, it is slightly more noticeably curved than the memoised solution's graph. This could be because (i) the actual number of operations (2*n*) is more than than in the memoisation algorithm (*n*), and (ii) the range is bigger. W.r.t (ii), if we stop the naïve matrix method graph at *n* = 1,00,000, it appears much closer to a linear trend (the curvature becomes noticeable only after this threshold).
 
-![Running Time of the Naïve Matrix Method](Naïve\ Matrix\ Method.png)  
+![Running Time of the Naïve Matrix Method](NaïveMat.png)  
 
 
 ### Optimised Matrix Method
@@ -100,7 +100,7 @@ It is clear, then, that log(*n*) squaring operations take place. Further, a quic
 
 Another observation we might make is that since the running time is not increasing significantly from *n* = 0 to *n* = 5,00,000, it must be almost negligible. This tells us that the absolute minimum time that the algorithms can take (including time for file access, function calling, parsing, etc.) is roughly 0.03-0.04 seconds. This is borne out most strongly by the graph of the memoised solution – it stays in this approximate range until *n* = 30,000, and only then begins to significantly increase.
 
-![Running Time of the Optimised Matrix Method](Optimised\ Matrix\ Method.png)  
+![Running Time of the Optimised Matrix Method](OptMat.png)  
 
 
 ### Strassen-Optimised Matrix Method
@@ -110,18 +110,18 @@ This is probably because the matrices involved are extremely small (only 2x2) an
 
 Besides this, no new conclusions can be drawn from this analysis.
 
-![Running Time of the Strassen-Optimised Matrix Method](Strassen-Optimised\ Matrix\ Method.png)  
+![Running Time of the Strassen-Optimised Matrix Method](StrasMat.png)  
 
-![Comparison of the Two Optimised Matrix Methods](Comparison\ of\ Optimised\ Matrix\ Methods.png)  
+![Comparison of the Two Optimised Matrix Methods](CompMat.png)  
 
 
 ## Overall Comparisons
 We will first compare all the algorithms among themselves. This again illustrates the extreme inefficiency of naïve recursion – it blows beyond 10⁸ μs within one order of magnitude, while the others stay well below 10⁶ μs up to five orders.
 
-![Comparison of All Methods (log scale)](Comparison\ of\ All\ Methods\ (log\ scale).png)  
+![Comparison of All Methods (log scale)](CompAll.png)  
 
 
 We can, therefore, exclude it from consideration. A bird's-eye view of the graph of the remaining algorithms' runtimes shows that the best method (apart from the optimised matrix methods, which are nearly constant) is the memoised dynamic programming method. It involves fewer (approximately half) arbitrary-size arithmetic operations than the naïve matrix method, even though the latter does not employ expensive matrix multiplication operations.
 
-![Comparison of Efficient Methods](Comparison\ of\ Efficient\ Methods.png)  
+![Comparison of Efficient Methods](CompEff.png)  
 
