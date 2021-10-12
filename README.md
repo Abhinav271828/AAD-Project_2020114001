@@ -73,4 +73,4 @@ The algorithms have been timed using the bash script `bench.sh`. Each input is r
 
 All the running time-related data obtained by using this script can be found [here](https://docs.google.com/spreadsheets/d/1Bw8u3r5KfDKLQmdH42RP8ePQ1ZesS4npszL40DaJ9t4/edit#gid=0). Graphs and best-fit lines (trendlines) were generated using Google Sheets.  
 
-Note that the script uses the `gdate` command (which may be system-specific; `date` will run on a Linux machine) to find the time in microseconds. The name of the executable file that is to be timed is passed as a command line argument, *e.g.*, `./bench.sh "Prelims/Fibonacci/fibonacci".
+Note that the script uses the `gdate` command (which may be system-specific; `date` will run on a Linux machine) to find the time in microseconds. The name of the executable file that is to be timed is passed as a command line argument, *e.g.*, `./bench.sh "Prelims/Fibonacci/fibonacci"`.
