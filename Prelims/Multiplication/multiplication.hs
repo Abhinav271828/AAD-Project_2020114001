@@ -5,7 +5,7 @@ import Data.Char
 -- Haskell Default --
 mult1 :: [Int] -> [Int] -> [Int] -- Haskell's native multiplication
 mult1 x y = lst $ (dec x) * (dec y)
-                where dec l = read (l >>= show) :: Int
+                where dec l = read (l >>= show) :: Integer
                       lst n = map (\t -> (ord t) - 48) (show n)
 ---------------------
 
@@ -102,12 +102,12 @@ split2 x y = let l1  = length x
 -- Main --
 main :: IO ()
 main = do x <- getArgs
-          -- let [i,j] = [read t :: [Int] | t <- take 2 x]
+          let [i,j] = [read t :: [Int] | t <- take 2 x]
           -- print (mult1 i j)
           -- print (mult2 i j)
           -- print (mult3 i j)
-          -- let [i,j] = [read t :: Integer | t <- take 2 x]
-          -- print (mult4 i j)
+          let [i,j] = [read t :: Integer | t <- take 2 x]
+          print (mult4 i j)
           -- print (mult5 i j)
           -- print (mult6 i j)
 ----------
