@@ -102,7 +102,7 @@ split2 x y = let l1  = length x
 -- Main --
 main :: IO ()
 main = do x <- getArgs
-          let [i,j] = [read t :: [Int] | t <- take 2 x]
+          -- let [i,j] = [read t :: [Int] | t <- take 2 x]
           -- print (mult1 i j)
           -- print (mult2 i j)
           -- print (mult3 i j)
