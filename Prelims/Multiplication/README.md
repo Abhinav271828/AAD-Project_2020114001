@@ -78,7 +78,7 @@ Notably, the range of 0- to 2000-digit numbers is enough to show the quadratic r
 ### The Karatsuba Algorithm
 This is an efficient divide-and-conquer solution. This is illustrated in its runtime, which stays under 0.03 seconds (not considering irregular spikes and fluctuations).  
 
-The best-fit polynomial lines, remarkably, do not have the best R² values among all types of functions. Furthermore, they do not match up with the expected complexity (approximately n^1.585). This could be because of the small range of inputs.
+The best-fit power series lines, remarkably, do not have the best R² values among all types of functions. Furthermore, they do not match up with the expected complexity (approximately n^1.585). This could be because of the small range of inputs.
 
 ![Running Time of the Karatsuba Algorithm (List Representation)](KarL.png)  
 
