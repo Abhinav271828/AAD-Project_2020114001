@@ -64,9 +64,9 @@ At the first step, the first argument of `(++)` has (*n*-2) elements; at the sec
 In addition, the `length` function is applied on the queue at each step, and it too runs in linear time.  
 Thirdly, `merge` is linear in the sum of the lengths of its arguments, but this is bounded above by *n*. We can therefore ignore it.  
 
-Hence, we have O(*n*) steps that each run in O(*n*) time, which makes this implementation, in fact, quadratic. This explains to some extent the extra running time. The quadratic best fit line, too, has a very high R² value.
+Hence, we have O(*n*) steps that each run in O(*n*) time, which makes this implementation, in fact, quadratic. This explains to some extent the extra running time. The quadratic best fit line, too, has a very high R² value.  
 
-![Running Time of the Iterative Implementation)(Iter.png)  
+![Running Time of the Iterative Implementation](Iter.png)  
 
 ## Comparisons
 The graph illustrates the extreme difference between the two implementations' running times very clearly. After *n* = 2000, the iterative method rises well above the recursive method and does not touch it even when the latter spikes after *n* = 4000.
