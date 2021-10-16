@@ -5,9 +5,11 @@ Project for the Algorithm Analysis and Design course at IIIT Hyderabad (Haskell 
 The following is a tentative timeline of the work involved (covering all algorithms to date, *i.e.*, before 8th October).  
 
 - [ ] October 15th: up to Lecture 5
-    - [x] Preliminary algorithms (Fibonacci, integer multiplication)
+    - [x] Preliminary algorithms
+        - [x] Fibonacci
+        - [x] integer multiplication)
     - [ ] All divide and conquer algorithms
-        - [ ] mergesort
+        - [x] mergesort
         - [ ] matrix multiplication
         - [ ] order statistics
         - [ ] polynomial multiplication
