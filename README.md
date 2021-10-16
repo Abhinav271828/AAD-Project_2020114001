@@ -12,7 +12,7 @@ The following is a tentative timeline of the work involved (covering all algorit
         - [x] mergesort
         - [ ] matrix multiplication
         - [x] order statistics
-        - [ ] polynomial multiplication
+        - [x] polynomial multiplication
 - [ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
     - [ ] Kruskal's algorithm
     - [ ] Huffman encoding
@@ -65,14 +65,14 @@ One way to find the Fibonacci numbers (by generating a list, in linear time) is 
 fibs = 0 : 1 : (zipWith (+) fibs (tail fibs))
 ```
 
-Note that function application is indicated by simply listing the arguments after the function, *e.g.* if `succ`{.hs} adds 1 to its argument, then `(succ 5)`{.hs} evaluates to 6.  
+Note that function application is indicated by simply listing the arguments after the function, *e.g.* if `succ` adds 1 to its argument, then `(succ 5)` evaluates to 6.  
 
-The `(:)` operator (sometimes called *cons*) attaches an element to the front of a list. It is right associative; thus the first two elements of `fibs`{.hs} are 0 and 1.  
+The `(:)` operator (sometimes called *cons*) attaches an element to the front of a list. It is right associative; thus the first two elements of `fibs` are 0 and 1.  
 
-The `zipWith`{.hs} function applies a binary operator (in this case `(+)`{.hs}) to each pair of corresponding elements of two lists. Here, the two lists are `fibs`{.hs} itself, and `(tail fibs)`{.hs}, which is `fibs`{.hs} without its first element.  
+The `zipWith` function applies a binary operator (in this case `(+)`) to each pair of corresponding elements of two lists. Here, the two lists are `fibs` itself, and `(tail fibs)`, which is `fibs` without its first element.  
 
-Since Haskell is lazy, when (say) the third element is requested, it tries to evaluate (the first element of `fibs`{.hs}) `+`{.hs} (the first element of `(tail fibs)`{.hs}). Both of these are available and it returns 1, as needed.  
-In this manner, any element of `fibs`{.hs} (which is an infinite list) can be computed.
+Since Haskell is lazy, when (say) the third element is requested, it tries to evaluate (the first element of `fibs`) `+` (the first element of `(tail fibs)`). Both of these are available and it returns 1, as needed.  
+In this manner, any element of `fibs` (which is an infinite list) can be computed.
 
 # Analysis of Algorithms
 The algorithms have been timed using the bash script `bench.sh`. Each input is run a number of times to avoid noise as far as is practical.  
