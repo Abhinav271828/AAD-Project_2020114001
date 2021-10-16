@@ -11,7 +11,7 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [ ] All divide and conquer algorithms
         - [x] mergesort
         - [ ] matrix multiplication
-        - [ ] order statistics
+        - [x] order statistics
         - [ ] polynomial multiplication
 - [ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
     - [ ] Kruskal's algorithm
