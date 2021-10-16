@@ -23,7 +23,7 @@ This solution superficially mirrors the queue-based algorithm shown in class. Th
 The `until` function used here is one Haskell's standard in-built functions, defined in the Standard Prelude. Its definition is given. The fact that it is defined recursively is the reason for calling this only a *superficial* implementation of the iterative solution; it is in fact also recursive under the hood. One way to iteratively implement `until` would appear to be as follows:
 
 ```hs
-until :: (a -> Bool) -> (a -> a) -> a -> a
+until2 :: (a -> Bool) -> (a -> a) -> a -> a
 until2 p f x = head $ dropWhile (not . p) [foldr ($) (replicate i f) x | i <- [0..] ]
 ```
 
@@ -66,7 +66,7 @@ Thirdly, `merge` is linear in the sum of the lengths of its arguments, but this 
 
 Hence, we have O(*n*) steps that each run in O(*n*) time, which makes this implementation, in fact, quadratic. This explains to some extent the extra running time. The quadratic best fit line, too, has a very high R² value.
 
-![Running Time of the Iterative Implementation)(It.png)  
+![Running Time of the Iterative Implementation)(Iter.png)  
 
 ## Comparisons
 The graph illustrates the extreme difference between the two implementations' running times very clearly. After *n* = 2000, the iterative method rises well above the recursive method and does not touch it even when the latter spikes after *n* = 4000.
