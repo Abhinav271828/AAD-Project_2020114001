@@ -19,7 +19,7 @@ mergesort1 xs  = merge (mergesort1 left) (mergesort1 right)
 
 -- Iterative Mergesort --
 mergesort2 :: Ord a => [a] -> [a] -- uses a queue
-mergesort2 xs = head $ until ((== 1) . length)
+mergesort2 xs = head $ until ((== []) . tail)
                          (\(q:r:qs) -> qs ++ [merge q r])
                          [[x] | x <- xs]
 

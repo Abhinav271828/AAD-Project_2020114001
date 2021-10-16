@@ -7,7 +7,7 @@ Two variations on the mergesort algorithms were covered in class:
 Both have been implemented in the file. They both make use of the same `merge` function.  
 
 ## Running
-To run one of the algorithms, uncomment (remove the two hyphens and the space preceding) the corresponding line in the `main` function, save the file, and recompile. When running, pass the list (enclosed in quotes) as a command-line argument.
+To run one of the functions, uncomment (remove the two hyphens and the space preceding) the corresponding line in the `main` function, save the file, and recompile. When running, pass the list (enclosed in quotes) as a command-line argument.
 ```
 > ./mergesort "[3,1,4,1,5,9]"
 > [1,1,3,4,5,9]
@@ -34,25 +34,22 @@ There is still a big difference in the operation of the so-called iterative code
 ## Analysis
 The R² values of the best fit of various types of functions for each of the functions' running times are shown below.  
 
-Algorithm | Linear | Quadratic | Exponential | Power Series | Logarithmic  
---------- | ------ | --------- | ----------- | ------------ | -----------  
-Recursion | 0.881  | 0.955     | 0.952       | 0.595        | 0.475  
-Iteration | 0.43   | 0.462     | 0.44        | 0.288        | 0.231  
+Algorithm    | Linear | Quadratic | Exponential | Power Series | Logarithmic  
+------------ | ------ | --------- | ----------- | ------------ | -----------  
+Recursion    | 0.902  | 0.952     | 0.947       | 0.632        | 0.519  
+Iteration    | 0.817  | 0.869     | 0.852       | 0.638        | 0.46  
 
-The best fit curve is not considered for the recursive methods as the R² values show that the trendline is not accurate for any standard type of function.  
+The best fit curve is not considered for the recursive method as the predicted curve is *n*log*n*, which cannot be generated.
 
 ### Recursion
-This version's running time remains roughly constant in the range 0 to 3000, but then fluctuates a lot before returning to a stable state. However, it is remarkably efficient for a recursive solution.  
-
-This is possibly due to the Haskell compiler (`ghc`) optimising recursion. Since Haskell is functional, it relies heavily on recursion, and therefore the compiler reduces the impact of this as much as possible in the object code.
+This implementation increases roughly quadratically. However, it should be noted that *n*log*n* is roughly similar to a quadratic curve, so this need not be taken as evidence against it being *n*log*n*.  
 
 ![Running Time of the Recursive Implementation](Rec.png)  
 
-
 ### Iteration
-This implementation is noticeably more regular than the recursive one, but it increases much, much faster, even in the same range. As noted above, the function is not truly recursive – its main distinction from the previous version is that it is bottom-up rather than top-down.  
+This implementation's running time increases faster than the recursive one, even in the same range. As noted above, the function is not truly recursive – its main distinction from the previous version is that it is bottom-up rather than top-down.  
 
-It appears interesting that it is so much slower than the first solution, since in imperative languages, iterative solutions are typically more efficient due to function call overheads. In Haskell, however (as noted above), the minimisation of these overheads is prioritised, since the language depends on them to a huge extent.  
+It appears interesting that it is slower than the first solution, since in imperative languages, iterative solutions are typically more efficient due to function call overheads. In Haskell, however, the minimisation of these overheads is prioritised, since the language depends on them to a huge extent.  
 An explanation for the inefficiency of the second method can be given by an analysis of its running time. This, significantly, does *not* turn out to be identical to the expected O(nlogn), because `(++)`, the concatenation operator, is linear in the length of its first operand. Using it in the queue manipulation is a possible source of the inefficiency.  
 
 To analyse the runtime, we note that the queue starts with *n* elements, *i.e.*,
@@ -61,14 +58,15 @@ To analyse the runtime, we note that the queue starts with *n* elements, *i.e.*,
 ```
 and at each step, its length reduces by 1, until it has one element. Thus (*n*-1) steps take place. We now consider the operations that take place in each step.  
 At the first step, the first argument of `(++)` has (*n*-2) elements; at the second, (*n*-3); and so on. Thus the `(++)` takes O(*n*) time.  
-In addition, the `length` function is applied on the queue at each step, and it too runs in linear time.  
-Thirdly, `merge` is linear in the sum of the lengths of its arguments, but this is bounded above by *n*. We can therefore ignore it.  
+Secondly, `merge` is linear in the sum of the lengths of its arguments, but this is bounded above by *n*. We can therefore ignore it.  
 
 Hence, we have O(*n*) steps that each run in O(*n*) time, which makes this implementation, in fact, quadratic. This explains to some extent the extra running time. The quadratic best fit line, too, has a very high R² value.  
 
 ![Running Time of the Iterative Implementation](Iter.png)  
 
 ## Comparisons
-The graph illustrates the extreme difference between the two implementations' running times very clearly. After *n* = 2000, the iterative method rises well above the recursive method and does not touch it even when the latter spikes after *n* = 4000.
+The graph comparing the recursive method with iteration illustrates the difference between the two implementations' running times very clearly. After *n* = 3500, the iterative method rises above the recursive method and does not touch it.  
 
-![Comparison of Methods](Comp.png)  
+This is possibly due to the Haskell compiler (`ghc`) optimising recursion, as noted above. Since Haskell is functional, it relies heavily on recursion, and therefore the compiler reduces the impact of this as much as possible in the object code.  
+
+![Comparison](Comp.png)  
