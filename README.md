@@ -8,9 +8,9 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] Preliminary algorithms
         - [x] Fibonacci
         - [x] integer multiplication)
-    - [ ] All divide and conquer algorithms
+    - [x] All divide and conquer algorithms
         - [x] mergesort
-        - [ ] matrix multiplication
+        - [x] matrix multiplication
         - [x] order statistics
         - [x] polynomial multiplication
 - [ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
