@@ -7,8 +7,6 @@ Three variations of Kruskal's algorithm were taught in class to find the MST of 
 
 The first two have been implemented under the same names. The second method was implemented twice using two different sorting algorithms, insertion sort and mergesort (the two implementations are otherwise identical). Path compression was not added as it relies on pointers, which are not present in Haskell.  
 
-Note: Haskell has an arbitrary-size integer type named `Integer`. This is the return type of all the functions.
-
 ## Running
 To run one of the algorithms, uncomment (remove the two hyphens and the space preceding) the corresponding line in the `main` function, save the file, and recompile. When running, pass the graph (enclosed in quotes) as a command-line argument. A graph is a pair whose first element is a list of integers (representing vertices) and second element a list of triples of integers (representing the source, destination and weight of edges).
 ```
@@ -21,7 +19,7 @@ To run one of the algorithms, uncomment (remove the two hyphens and the space pr
 This method is named "iteration" as only a rough description of the manner in which it builds the tree; it is in fact recursive. The first argument keeps track of how many edges are *required* in the tree (it starts as |V|-1 and does not change across calls); the second keeps track of how many edges have been added (it increases by one at each call). The third argument is the list of edges that have been added to the tree. The fourth argument is the actual graph (it too does not change across calls).  
 
 At each call, the graph's edges are filtered to find all edges which (1) have not yet been added to the tree, (2) are adjacent to one or more of the tree's edges, and (3) do not form a cycle when added to the tree. The minimum-weight edge of all these is added to the tree.  
-Condition (1) is accounted for by the `` x `notElem\` xs  `` part, and conditions (2) and (3) by the `adjTo` function (see below).  
+Condition (1) is accounted for by the `` x `notElem` xs  `` part, and conditions (2) and (3) by the `adjTo` function (see below).  
 
 The `adjTo` function checks if its second argument (an edge `e`, say) is adjacent to some edge in its first argument (a list of edges `es`, say) *without forming a cycle*. It does this by finding all the edges in `es` adjacent to the *source vertex* of `e` (the list `adjS`), and all those adjacent to its *destination vertex* (the list `adjD`). Note that "source" and "destination" are arbitrary designations; it does not matter which end is which, only that they are distinct ends.  
 If exactly one of these sets is empty (`[]`), then `e` can be added to the tree without forming a cycle. This is checked by the inequality condition.  
