@@ -1,31 +1,40 @@
 #!/bin/bash
 
-arow="[$(($RANDOM % 10))"
-brow="[$(($RANDOM % 10))"
+v="[0,1"
+#for i in $(seq 1 1 150)
+#do
+#    v="$v$i,"
+#done
+#v="$v""151"
 
-arows=($arow)
-brows=($brow)
-
-for i in $(seq 1 1 151)
+for i in $(seq 2 3 303)
 do
-    echo "i = $i"
-    amatr="["
-    for r in "${arows[@]:0:${#arows[@]}-1}"
+    verts="$v]"
+    
+    e=()
+    
+    for m in $(seq 0 1 $((i-2)))
     do
-        amatr="$amatr$r],"
+        for n in $(seq $((m+1)) 1 $((i-1)))
+        do
+            r=$(($RANDOM % 100))
+            if [[ $r -lt $2 ]]; then
+              e+=( "E $m $n $(($RANDOM % 10))" )
+            fi
+        done
     done
-    r=${arows[${#arows[@]} - 1]}
-    amatr="$amatr$r]]"
-    bmatr="["
-    for r in "${brows[@]:0:${#brows[@]}-1}"
-    do
-        bmatr="$bmatr$r],"
-    done
-    r=${brows[${#brows[@]} - 1]}
-    bmatr="$bmatr$r]]"
 
-    echo $amatr
-    echo $bmatr
+    edges="["
+    for ed in "${e[@]:0:${#e[@]}-1}"
+    do
+        edges="$edges$ed,"
+    done
+    ed=${e[${#e[@]}-1]}
+    edges="$edges$ed]"
+    
+    g="($verts,$edges)"
+
+    echo "g = $g"
 
 ########################
 
@@ -33,7 +42,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$amatr" "$bmatr" > /dev/null
+        "./$1" "$g" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -42,53 +51,15 @@ do
 
 ########################
 
-    arows2=()
-    for t in "${arows[@]}"
+    for k in $(seq $i 1 $((i+3-1)))
     do
-        s="$t"
-        for u in {1..1}
-        do
-            s="$s,$(($RANDOM % 10))"
-        done
-        arows2+=("$s")
-    done
-    arows=("${arows2[@]}")
-
-    brows2=()
-    for t in "${brows[@]}"
-    do
-        s="$t"
-        for u in {1..1}
-        do
-            s="$s,$(($RANDOM % 10))"
-        done
-        brows2+=("$s")
-    done
-    brows=("${brows2[@]}")
-
-    for k in {1..1}
-    do
-        arow="[$(($RANDOM % 10))"
-        for j in $(seq 1 1 $(($i)))
-        do
-            arow="$arow,$(($RANDOM % 10))"
-        done
-        arows+=("$arow")
+        v="$v,$k"
     done
 
-    for k in {1..1}
-    do
-        brow="[$(($RANDOM % 10))"
-        for j in $(seq 1 1 $(($i)))
-        do
-            brow="$brow,$(($RANDOM % 10))"
-        done
-        brows+=("$brow")
-    done
+########################
 
-##########################
-
-    echo $(bc <<< "$i / 10.0")
+    echo $(bc <<< "$i / 3.0")
     t=$(bc -l <<< "$sum / 100000.0")
     echo "$i,$t" >> time.csv
+
 done
