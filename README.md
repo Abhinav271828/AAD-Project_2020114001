@@ -13,11 +13,11 @@ The following is a tentative timeline of the work involved (covering all algorit
         - [x] matrix multiplication
         - [x] order statistics
         - [x] polynomial multiplication
-- [ ] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
+- [x] October 22nd: up to Lecture 8, 15th September (all greedy algorithms)
     - [x] Kruskal's algorithm
     - [x] Activity selection
-    - [ ] Huffman encoding
-    - [ ] The set cover problem
+    - [x] Huffman encoding
+    - [x] The set cover problem
 - [ ] November 10th: up to Lecture 12, 29th September (all dynamic programming algorithms)
     - [ ] Shortest path in a DAG
     - [ ] Longest increasing subsequence
