@@ -28,14 +28,14 @@ The `paths` function is almost identical to the `dist` function, except that it 
 Both `getDist` and `getPath` were run on three types of graphs: complete (edges between all pairs), half-complete and quarter-complete.  
 The R² values of the best fit of various types of functions for each of the functions' running times on each type of input are shown below.  
 
-Algorithm            | Linear | Quadratic | Exponential | Power Series | Logarithmic  
--------------------- | ------ | --------- | ----------- | ------------ | -----------  
-Distances (complete) | 0.255  | 0.542     | 0.974       | 0.361        | 0.113  
-Distances (50%)      | 0.974  | 0.99      | 0.984       | 0.807        | 0.637  
-Distances (25%)      | 0.89   | 0.972     | 0.98        | 0.838        | 0.563  
-Paths (complete)     | 0.179  | 0.3       | 0.183       | 0.048        | 0.051  
-Paths (50%)          | 0.622  | 0.664     | 0.636       | 0.35         | 0.351  
-Paths (25%)          | 0.622  | 0.664     | 0.636       | 0.35         | 0.351  
+Algorithm            | Linear | Quadratic | Cubic | Biquadratic | Exponential | Power Series | Logarithmic  
+-------------------- | ------ | --------- | ----- | ----------- | ----------- | ------------ | -----------  
+Distances (complete) | 0.794  | 0.987     | 0.984 | 0.985       | 0.983       | 0.764        | 0.433  
+Distances (50%)      | 0.836  | 0.975     | 0.984 | 0.987       | 0.986       | 0.732        | 0.474  
+Distances (25%)      | 0.795  | 0.956     | 0.967 | 0.968       | 0.963       | 0.655        | 0.438   
+Paths (complete)     | 0.817  | 0.972     | 0.976 | 0.977       | 0.961       | 0.768        | 0.452  
+Paths (50%)          | 0.839  | 0.983     | 0.988 | 0.989       | 0.987       | 0.72         | 0.472  
+Paths (25%)          | 0.826  | 0.979     | 0.985 | 0.985       | 0.98        | 0.66         | 0.463  
 
 ### Distances
 We note that the highest R² value is that of the biquadratic curve, although its leading coefficient is small. This leads us to believe that the code ought to run in at least cubic time; let us theoretically analyse it to verify this.  
