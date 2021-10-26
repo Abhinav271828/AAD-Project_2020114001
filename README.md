@@ -19,8 +19,8 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] Huffman encoding
     - [x] The set cover problem
 - [ ] November 10th: up to Lecture 12, 29th September (all dynamic programming algorithms)
-    - [ ] Shortest path in a DAG
-    - [ ] Longest increasing subsequence
+    - [x] Shortest path in a DAG
+    - [x] Longest increasing subsequence
     - [ ] Edit distance
     - [ ] Chain matrix multiplication
     - [ ] The knapsack problem (with and without repetition)
