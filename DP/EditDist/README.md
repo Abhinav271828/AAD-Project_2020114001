@@ -7,7 +7,7 @@ One dynamic programming algorithm was taught in class to calculate the edit dist
 ```
 which shows that the edit distance is in fact 6.  
 
-Of the latter two, the second implementation is more efficient (see the Explanation section).
+Of the latter two, the second implementation is expected to be more efficient (see the Explanation section).
 
 ## Running
 To run one of the functions, uncomment (remove the two hyphens and the space preceding) the corresponding line in the `main` function, save the file, and recompile. When running, pass the strings as command-line arguments.
