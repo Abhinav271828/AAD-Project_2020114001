@@ -39,10 +39,9 @@ The R² values of the best fit of various types of functions for each of the fun
 
 Algorithm         | Linear | Quadratic | Cubic | Biquadratic | Exponential | Power Series | Logarithmic  
 ----------------- | ------ | --------- | ----- | ----------- | ----------- | ------------ | -----------  
-E. Distance       | 0.255  | 0.542     | 0.974 | 0.111       | 0.361       | 0.113        | 0.111  
-E. Alignment      | 0.255  | 0.542     | 0.974 | 0.111       | 0.361       | 0.113        | 0.111  
-E. Alignment (O.) | 0.255  | 0.542     | 0.974 | 0.111       | 0.361       | 0.113        | 0.111  
-
+E. Distance       | 0.75   | 0.913     | 0.918 | 0.92        | 0.892       | 0.706        | 0.363  
+E. Alignment      | 0.834  | 0.987     | 0.988 | 0.991       | 0.953       | 0.727        | 0.412  
+E. Alignment (O.) | 0.819  | 0.99      | 0.995 | 0.995       | 0.975       | 0.71         | 0.398  
 
 ### Finding Distance
 We see that the function type that fits best is a biquadratic polynomial, but it has a small leading coefficient. Nevertheless, we will see that a biquadratic dependence is theoretically justifiable as well.  
