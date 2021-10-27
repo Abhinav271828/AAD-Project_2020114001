@@ -21,7 +21,7 @@ The following is a tentative timeline of the work involved (covering all algorit
 - [ ] November 10th: up to Lecture 12, 29th September (all dynamic programming algorithms)
     - [x] Shortest path in a DAG
     - [x] Longest increasing subsequence
-    - [ ] Edit distance
+    - [x] Edit distance
     - [ ] Chain matrix multiplication
     - [ ] The knapsack problem (with and without repetition)
     - [ ] Shortest reliable path
