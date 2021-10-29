@@ -4,7 +4,7 @@ Project for the Algorithm Analysis and Design course at IIIT Hyderabad (Haskell 
 # Tentative Timeline
 The following is a tentative timeline of the work involved (covering all algorithms to date, *i.e.*, before 8th October).  
 
-- [ ] October 15th: up to Lecture 5
+- [x] October 15th: up to Lecture 5
     - [x] Preliminary algorithms
         - [x] Fibonacci
         - [x] integer multiplication)
@@ -22,7 +22,7 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] Shortest path in a DAG
     - [x] Longest increasing subsequence
     - [x] Edit distance
-    - [ ] Chain matrix multiplication
+    - [x] Chain matrix multiplication
     - [ ] The knapsack problem (with and without repetition)
     - [ ] Shortest reliable path
     - [ ] All pairs shortest path
