@@ -32,8 +32,8 @@ The R² values of the best fit of various types of functions for each of the fun
 
 Algorithm     | Linear | Quadratic | Cubic | Biquadratic | Exponential | Power Series | Logarithmic  
 ------------- | ------ | --------- | ----- | ----------- | ----------- | ------------ | -----------  
-Cost-Finding  | 0.255  | 0.542     | 0.974 | 0.111       | 0.361       | 0.113        | 0.111  
-Order-Finding | 0.974  | 0.99      | 0.984 | 0.111       | 0.807       | 0.637        | 0.111  
+Cost-Finding  | 0.682  | 0.933     | 0.977 | 0.984       | 0.985       | 0.674        | 0.321  
+Order-Finding | 0.739  | 0.972     | 0.993 | 0.994       | 0.982       | 0.716        | 0.354  
 
 Best fit curves are not considered for the last two methods as their values show that the trendline is not accurate for any standard type of function.  
 
