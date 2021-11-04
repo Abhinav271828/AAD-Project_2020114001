@@ -1,13 +1,14 @@
 #!/bin/bash
 
-d=$((RANDOM % 10))
-a="[($(($RANDOM % 10)),$d)"
+a="[($((($RANDOM % 10) + 1)),$((($RANDOM % 10) + 1)))"
 
-for i in $(seq 1 3 1000)
+for i in $(seq 1 3 302)
 do
     m="$a]"
+    n=$(($i * 10))
     
     echo "m = $m"
+    echo "n = $n"
 
 ########################
 
@@ -15,7 +16,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$m" > /dev/null
+        "./$1" "$m" "$n" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -26,9 +27,9 @@ do
 
     for k in $(seq $i 1 $((i+3-1)))
     do
-        e=$(($RANDOM % 10))
-        a="$a,($d,$e)"
-        d=$e
+        e=$((($RANDOM % 10) + 1))
+        f=$((($RANDOM % 10) + 1))
+        a="$a,($e,$f)"
     done
 
 ########################
