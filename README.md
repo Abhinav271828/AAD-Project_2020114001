@@ -23,7 +23,7 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] Longest increasing subsequence
     - [x] Edit distance
     - [x] Chain matrix multiplication
-    - [ ] The knapsack problem (with and without repetition)
+    - [x] The knapsack problem (with and without repetition)
     - [ ] Shortest reliable path
     - [ ] All pairs shortest path
     - [ ] Independent set
