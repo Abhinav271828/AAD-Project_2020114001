@@ -1,14 +1,43 @@
 #!/bin/bash
 
-a="[($((($RANDOM % 10) + 1)),$((($RANDOM % 10) + 1)))"
+v="[0,1,2,3"
+#for i in $(seq 1 1 150)
+#do
+#    v="$v$i,"
+#done
+#v="$v""151"
 
-for i in $(seq 1 3 302)
+for i in $(seq 4 4 2000)
 do
-    m="$a]"
-    n=$(($i * 10))
+    verts="$v]"
     
-    echo "m = $m"
-    echo "n = $n"
+    e=()
+    
+    for m in $(seq 0 1 $((i-2)))
+    do
+        for n in $(seq $((m+1)) 1 $((i-1)))
+        do
+            r=$(($RANDOM % 100))
+            if [[ $r -lt $2 ]]; then
+              e+=( "($m,$n,$(($RANDOM % 10)))" )
+            fi
+        done
+    done
+
+    edges="["
+    for ed in "${e[@]:0:${#e[@]}-1}"
+    do
+        edges="$edges$ed,"
+    done
+    ed=${e[${#e[@]}-1]}
+    edges="$edges$ed]"
+    
+    g="($verts,$edges)"
+
+    echo "g = $g"
+    echo "s = 0"
+    echo "d = $((i-1))"
+    echo "k = $((3 * i / 4))"
 
 ########################
 
@@ -16,7 +45,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$m" "$n" > /dev/null
+        "./$1" "$g" "0" "$((i-1))" "$((3 * i / 4))" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -25,11 +54,9 @@ do
 
 ########################
 
-    for k in $(seq $i 1 $((i+3-1)))
+    for k in $(seq $i 1 $((i+4-1)))
     do
-        e=$((($RANDOM % 10) + 1))
-        f=$((($RANDOM % 10) + 1))
-        a="$a,($e,$f)"
+        v="$v,$k"
     done
 
 ########################
