@@ -1,40 +1,74 @@
 #!/bin/bash
 
-v="[0,1,2,3"
-#for i in $(seq 1 1 150)
-#do
-#    v="$v$i,"
-#done
-#v="$v""151"
+function tree
+{
+    if [[ $1 -eq 0 ]]; then
+        t="Leaf $2"
+        n="$2"
+        echo "$n $t"
+    else
+       t1=$(tree $(($1-1)) $(($2+1)))
 
-for i in $(seq 4 1 200)
+       c=0
+       i=""
+       s1=""
+       for d in $t1
+       do
+         if [[ $c -eq 0 ]]; then
+           if [[ $d =~ [0-9]+ ]]; then
+             i+=$d
+           else
+             c=1
+             s1+="$d "
+           fi
+         else
+           s1+="$d "
+         fi
+       done
+
+       t2=$(tree $(($1-1)) $(($i+1)))
+
+       c=0
+       j=""
+       s2=""
+       for d in $t2
+       do
+         if [[ $c -eq 0 ]]; then
+           if [[ $d =~ [0-9]+ ]]; then
+             j+=$d
+           else
+             c=1
+             s2+="$d "
+           fi
+         else
+           s2+="$d "
+         fi
+       done
+
+       t="Node $2 [$s1, $s2]"
+       echo "$j $t"
+    fi
+}
+
+for i in $(seq 0 1 1000)
 do
-    verts="$v]"
+    t=$(tree $i 0)
     
-    e=()
-    
-    for m in $(seq 0 1 $((i-1)))
+    c=0
+    s=""
+    for d in $t
     do
-        for n in $(seq 0 1 $((i-1)))
-        do
-            r=$(($RANDOM % 100))
-            if [[ $r -lt $2 ]]; then
-              e+=( "(($m,$n),$(($RANDOM % 10)))" )
+        if [[ $c -eq 0 ]]; then
+            if [[ ! ( $d =~ [0-9]+ ) ]]; then
+                c=1
+                s+="$d "
             fi
-        done
+        else
+            s+="$d "
+        fi
     done
 
-    edges="["
-    for ed in "${e[@]:0:${#e[@]}-1}"
-    do
-        edges="$edges$ed,"
-    done
-    ed=${e[${#e[@]}-1]}
-    edges="$edges$ed]"
-    
-    g="($verts,$edges)"
-
-    echo "g = $g"
+    echo "s = $s"
 
 ########################
 
@@ -42,7 +76,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$g" > /dev/null
+        "./$1" "$s" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -51,11 +85,6 @@ do
 
 ########################
 
-    #for k in $(seq $i 1 $((i)))
-    #do
-        v="$v,$i"
-    #done
-
 ########################
 
     echo $(bc <<< "$i")
@@ -63,3 +92,4 @@ do
     echo "$i,$t" >> time.csv
 
 done
+
