@@ -25,7 +25,7 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] Chain matrix multiplication
     - [x] The knapsack problem (with and without repetition)
     - [x] Shortest reliable path
-    - [ ] All pairs shortest path
+    - [x] All pairs shortest path
     - [ ] Independent set
 - [ ] November 15th: up to Lecture 14, 13th October (all number theoretic algorithms)
     - [ ] Euclid's GCD algorithm
