@@ -29,7 +29,7 @@ maxiset t@(Node n cs) = maxByS (insert n $
 
 -- Size of Maximal Independent Set (DP) --
 maxi' :: Tree -> Int
-maxi' t = list t (highest t) !! (highest t)
+maxi' t = list t (highest t) !! 0
 
 highest :: Tree -> Int
 highest (Leaf x) = x
@@ -63,7 +63,7 @@ insertAt k i ks = let (before, a:after) = splitAt i ks
 
 -- Maximal Independent Set (DP) --
 maxiset' :: Tree -> IntSet
-maxiset' t = list' t (highest t) !! (highest t)
+maxiset' t = list' t (highest t) !! 0
 
 list' :: Tree -> Int -> [IntSet]
 list' (Leaf x) k = insertAt (singleton x) x (replicate (k+1) empty)
