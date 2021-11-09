@@ -26,7 +26,7 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] The knapsack problem (with and without repetition)
     - [x] Shortest reliable path
     - [x] All pairs shortest path
-    - [ ] Independent set
+    - [x] Maximal independent set
 - [ ] November 15th: up to Lecture 14, 13th October (all number theoretic algorithms)
     - [ ] Euclid's GCD algorithm
     - [ ] Euclid's extended algorithm
