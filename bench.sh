@@ -1,25 +1,13 @@
 #!/bin/bash
 
-i=0
-while read l
-do
-    #t=$(tree $i 0)
-    #
-    #c=0
-    #s=""
-    #for d in $t
-    #do
-    #    if [[ $c -eq 0 ]]; then
-    #        if [[ ! ( $d =~ [0-9]+ ) ]]; then
-    #            c=1
-    #            s+="$d "
-    #        fi
-    #    else
-    #        s+="$d "
-    #    fi
-    #done
+a=$(($RANDOM % 10))
+b=$(($RANDOM % 10))
 
-    #echo "s = $s"
+for i in $(seq 1 100 100000)
+do
+
+    echo "a = $a"
+    echo "b = $b"
 
 ########################
 
@@ -27,7 +15,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$l" > /dev/null
+        "./$1" "$a" "$b" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -36,11 +24,16 @@ do
 
 ########################
 
+for j in $(seq 0 1 99)
+do
+    a+=$(($RANDOM % 10))
+    b+=$(($RANDOM % 10))
+done
+
 ########################
 
     echo $(bc <<< "$i")
     t=$(bc -l <<< "$sum / 100000.0")
     echo "$i,$t" >> time.csv
-    i=$((i+1))
 
-done < trials.txt
+done
