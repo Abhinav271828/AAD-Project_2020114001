@@ -28,8 +28,8 @@ The following is a tentative timeline of the work involved (covering all algorit
     - [x] All pairs shortest path
     - [x] Maximal independent set
 - [ ] November 15th: up to Lecture 14, 13th October (all number theoretic algorithms)
-    - [ ] Euclid's GCD algorithm
-    - [ ] Euclid's extended algorithm
+    - [x] Euclid's GCD algorithm
+    - [x] Euclid's extended algorithm
     - [ ] The Rabin-Miller primality test
 
 # Functional Programming
