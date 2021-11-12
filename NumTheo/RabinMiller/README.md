@@ -39,6 +39,11 @@ Then, `s` and `t` are calculated. Calculating `s` takes time linear in the power
 Now, for each `i` from 0 to `k`-1, first the powers `pows` are calculated. This requires indexing into `a` (time proportional to `k`) and taking the power and the modulus.  
 This list `pows` is then traversed by `all` and `takeWhile` and `last`, which adds a factor proportional to log *t*. We have taken this as constant.  
 
-Therefore we have a total time of O(*p* + *k*²), which reduces to O(*p*²).
+Therefore we have a total time of O(*p* + *k*²), which reduces to O(*p*²).  
+
+Note, however, that this analysis applies only to prime values of `p`. If `p` is composite, the short-circuiting of `and` will allow the program to terminate in much less time; this explains the frequent minimal values (~30,000 μs) and the occasional spikes which grow polynomially.  
+
+Incidentally, we can conclude from this that the computations common to all values of `p` (finding `s` and `t` and choosing `k` values randomly) take only minimal time up to `p` = 5001. Thus our assumption that the computation of `s` and `t` takes constant time is justified.  
+It is also evidence in favour of the second part being more time-consuming than the first part (quadratic as against linear), as we have already concluded.  
 
 ![Running Time](Rabin.png)
