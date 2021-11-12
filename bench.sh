@@ -1,13 +1,11 @@
 #!/bin/bash
 
-a=$(($RANDOM % 10))
-b=$(($RANDOM % 10))
-
-for i in $(seq 1 100 100000)
+for p in $(seq 1 10 100000)
 do
 
-    echo "a = $a"
-    echo "b = $b"
+    k=$((($RANDOM % p) + 1))
+    echo "p = $p"
+    echo "k = $k"
 
 ########################
 
@@ -15,7 +13,7 @@ do
     for j in {1..100}
     do
         t1=$(gdate +"%s%N")
-        "./$1" "$a" "$b" > /dev/null
+        "./$1" "$k" "$p" > /dev/null
         t2=$(gdate +"%s%N")
         t=$(bc <<< "$t2 - $t1")
         sum=$(bc <<< "$sum + $t")
@@ -24,16 +22,10 @@ do
 
 ########################
 
-for j in $(seq 0 1 99)
-do
-    a+=$(($RANDOM % 10))
-    b+=$(($RANDOM % 10))
-done
-
 ########################
 
-    echo $(bc <<< "$i")
+    echo $(bc <<< "$p")
     t=$(bc -l <<< "$sum / 100000.0")
-    echo "$i,$t" >> time.csv
+    echo "$p,$t" >> time.csv
 
 done
